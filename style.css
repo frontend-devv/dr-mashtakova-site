@@ -81,7 +81,7 @@ address {
 .card__avatar:hover,
 .card__avatar:active {
   transform: scale(1.5);
-  box-shadow: 0 0 0.5rem #f4a261;
+  box-shadow: 0 4px 10px rgba(244, 162, 97, 0.7);
 }
 
 .card__name {
@@ -137,6 +137,9 @@ address {
 .social-links__link:focus {
   background-color: var(--link-hover);
   color: var(--text-color);
+}
+.enlarged {
+  transform: scale(1.5);
 }
 
 @media (max-width: 40em) {
