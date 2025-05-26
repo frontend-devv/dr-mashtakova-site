@@ -3,8 +3,8 @@
   --card-bg: #ffecdb;
   --text-color: #4b3f3f;
   --accent: #f4a261;
-  --link-bg: #ffb3b3;
-  --link-hover: #ff6f61;
+  --link-bg: #ffd6d6;
+  --link-hover: #ffb3b3;
 
   --min-card-width: 18rem;
   --max-card-width: 24rem;
@@ -22,14 +22,14 @@
 
 body {
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
   min-height: 100vh;
+  font-family: 'Inter', sans-serif;
   color: var(--text-color);
   background-image: linear-gradient(to right bottom, rgba(160, 216, 239, 0.8), rgba(135, 206, 250, 0.8)),
-    url(./assets/images/background.webp), url(./assets/images/background-2.jpg);
-  background-size: 100% 100%, 50% 100%, 50% 100%;
-  background-repeat: no-repeat;
+    url(./assets/images/background-left.webp), url(./assets/images/background-right.webp);
   background-position: center, left center, right center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 50% 100%, 50% 100%;
 }
 
 address {
@@ -37,57 +37,56 @@ address {
 }
 
 .container {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0;
   margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 .card {
-  font-size: 0.875rem;
-  background-color: var(--card-bg);
-  color: var(--text-color);
-  padding: var(--card-padding);
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 0 0 var(--card-width);
-  border-radius: 0.75rem;
+  padding: var(--card-padding);
+  font-size: 0.875rem;
+  color: var(--text-color);
+  background-color: var(--card-bg);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
 }
 
 .card__avatar {
-  box-sizing: content-box;
   width: 5.5rem;
   height: 5.5rem;
-  border-radius: 50%;
-  border: 4px solid #f4a261;
   margin-bottom: 1.5rem;
-  transition: all 0.2s ease-in-out;
+  border: 4px solid #f4a261;
+  border-radius: 50%;
+  box-sizing: content-box;
+  transition: all 0.3s ease-in-out;
 }
 
-.card__avatar:hover,
-.card__avatar:active {
+.card__avatar--hovered {
   transform: scale(1.5);
   box-shadow: 0 4px 10px rgba(244, 162, 97, 0.7);
 }
 
 .card__name {
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
 }
 
 .card__location {
@@ -96,19 +95,19 @@ address {
 }
 
 .card__position {
+  margin: 1.5rem 0;
   font-size: 1rem;
   font-weight: 500;
-  margin: 1.5rem 0;
 }
 
 .social-links {
-  color: #fff;
-  list-style: none;
-  font-size: 1rem;
   display: flex;
   flex-direction: column;
   align-self: stretch;
   gap: 1rem;
+  list-style: none;
+  font-size: 1rem;
+  color: var(--text-color);
 }
 
 .social-links__item {
@@ -119,35 +118,40 @@ address {
 
 .social-links__link:link,
 .social-links__link:visited {
-  text-decoration: none;
-  flex: 1 1 auto;
   display: flex;
   justify-content: center;
-  background-color: var(--link-bg);
-  color: var(--white);
+  flex: 1 1 auto;
   padding: 1rem;
+  color: inherit;
+  background-color: var(--link-bg);
   border-radius: 0.5rem;
-  cursor: pointer;
+  text-decoration: none;
   font-weight: 700;
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-.social-links__link:hover,
-.social-links__link:active,
-.social-links__link:focus {
+.social-links__link:active {
   background-color: var(--link-hover);
-  color: var(--text-color);
-}
-.enlarged {
-  transform: scale(1.5);
 }
 
 @media (max-width: 40em) {
   body {
     background-image: linear-gradient(to right bottom, rgba(160, 216, 239, 0.8), rgba(135, 206, 250, 0.8)),
-      url(./assets/images/background-mobile.webp);
-    background-size: contain;
-    background-repeat: repeat;
+      url(./assets/images/background-2.webp);
     background-position: bottom center;
+    background-repeat: repeat;
+    background-size: contain;
   }
+}
+
+@media (hover: hover) {
+  .social-links__link:hover {
+    background-color: var(--link-hover);
+  }
+}
+
+.social-links__link:focus-visible {
+  outline-offset: -2px;
+  outline: 2px solid var(--link-hover);
 }
