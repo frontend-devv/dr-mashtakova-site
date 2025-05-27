@@ -3,6 +3,7 @@
   --card-bg: #ffecdb;
   --text-color: #4b3f3f;
   --accent: #f4a261;
+  --accent-hover: #eb700c;
   --link-bg: #ffd6d6;
   --link-hover: #ffb3b3;
 
@@ -135,6 +136,43 @@ address {
   background-color: var(--link-hover);
 }
 
+.social-links__link:focus-visible {
+  outline-offset: -2px;
+  outline: 2px solid var(--link-hover);
+}
+
+.attribution {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 1.2rem;
+}
+
+.attribution__link:link,
+.attribution__link:visited {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.attribution__link:hover,
+.attribution__link:active {
+  color: var(--accent);
+}
+
+.attribution__link:active {
+  transform: translateY(2px);
+}
+
+.attribution__icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
 @media (max-width: 40em) {
   body {
     background-image: linear-gradient(to right bottom, rgba(160, 216, 239, 0.8), rgba(135, 206, 250, 0.8)),
@@ -149,9 +187,4 @@ address {
   .social-links__link:hover {
     background-color: var(--link-hover);
   }
-}
-
-.social-links__link:focus-visible {
-  outline-offset: -2px;
-  outline: 2px solid var(--link-hover);
 }
